@@ -1,0 +1,29 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+	
+	static int N;
+	
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        N = Integer.parseInt(br.readLine());
+        long[] x = new long[N];
+        long[] y = new long[N];
+
+        for (int i = 0; i < N; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            x[i] = Long.parseLong(st.nextToken());
+            y[i] = Long.parseLong(st.nextToken());
+        }
+
+        long sum = 0;
+        for (int i = 0; i < N; i++) {
+            int next = (i + 1) % N;
+            sum += x[i] * y[next];
+            sum -= y[i] * x[next];
+        }
+        double area = Math.abs(sum) / 2.0;
+        System.out.printf("%.1f\n", area);
+    }
+}

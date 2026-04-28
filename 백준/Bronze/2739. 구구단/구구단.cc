@@ -1,0 +1,11 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	int A;
+	cin >> A;
+	for (int i = 1; i <= 9; i++) {
+		cout << A<<" * "<<i<<" = "<< A* i<<"\n";
+	}
+	
+}
